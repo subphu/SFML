@@ -3,31 +3,14 @@
 //  Proof of Concept
 //
 //  Created by Subroto Prasetyo Hudiono on 5/21/19.
-//  Copyright © 2019 Subph. All rights reserved.
+//  Copyd © 2019 Subph. All ds reserved.
 //
 
-#include <SFML/Graphics.hpp>
 #include <iostream>
+#include "game.hpp"
+#include "constants.hpp"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Proof of Concept");
-    while (window.isOpen()) {
-        sf::Event event;
-        
-        while (window.pollEvent(event)) {
-            switch (event.type) {
-                case sf::Event::Closed:
-                    std::cout << "Closed\n";
-                    window.close();
-                    break;
-                    
-                default:
-                    break;
-            }
-        }
-        window.clear();
-        
-        window.display();
-    }
-    return EXIT_SUCCESS;
+    poc::Game();
+    return EXIT_SUCCESS;    
 }
