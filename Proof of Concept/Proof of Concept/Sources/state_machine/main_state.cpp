@@ -8,6 +8,10 @@ MainState::~MainState() {
     
 }
 
+void MainState::input(sf::Event *event) {
+    
+}
+
 void MainState::update(float dt) {
     
 }
