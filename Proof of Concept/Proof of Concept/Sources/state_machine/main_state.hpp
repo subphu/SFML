@@ -9,7 +9,7 @@ public:
     MainState(sf::RenderWindow *window);
     ~MainState();
     
-    void update(float dt);
+    void update();
     void draw(float dt);
     void input(sf::Event *event);
     

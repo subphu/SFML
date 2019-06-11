@@ -10,8 +10,10 @@ class StateMachine {
     
 public:
     StateMachine(const StateRef& state);
+    
     StateRef get_current_state() const;
     StateRef pop_state();
+    
     void push_state(const StateRef& state);
     
 private:
