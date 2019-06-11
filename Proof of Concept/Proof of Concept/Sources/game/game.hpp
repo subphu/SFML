@@ -20,6 +20,7 @@ namespace poc {
         sf::RenderWindow window;
         
         void run();
+        void handleEvent();
     };
 }
 
