@@ -8,7 +8,8 @@
 #define GAME_TITLE "Proof of Concept"
 #define DEFAULT_WIDTH 1280
 #define DEFAULT_HEIGHT 960
-#define FRAME_DELAY 16000
+#define FRAME_DELAY 16500
+#define SECOND 1000000
 
 
 namespace poc {
@@ -22,8 +23,10 @@ namespace poc {
         
     private:
         sf::RenderWindow window;
+        sf::Font font;
         
         void run();
+        void loadResources();
         void handleEvent(const std::shared_ptr<State> state);
     };
 }
