@@ -1,11 +1,12 @@
 #include "state_machine.hpp"
-#include "state.h"
+
+std::stack<StateRef> StateMachine::stack = std::stack<StateRef>();
 
 StateMachine::StateMachine(const StateRef& initialState) {
     pushState(initialState);
 }
 
-StateRef StateMachine::getCurrentState() const {
+StateRef StateMachine::getCurrentState() {
     return stack.top();
 }
 

@@ -11,12 +11,12 @@ class StateMachine {
 public:
     StateMachine(const StateRef& state);
     
-    StateRef getCurrentState() const;
-    StateRef popState();
+    static StateRef getCurrentState();
+    static StateRef popState();
     
-    void pushState(const StateRef& state);
+    static void pushState(const StateRef& state);
     
 private:
-    std::stack<StateRef> stack;
+    static std::stack<StateRef> stack;
     
 };
