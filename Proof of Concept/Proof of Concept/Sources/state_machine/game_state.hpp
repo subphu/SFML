@@ -1,14 +1,16 @@
 #pragma once
 
-#include "state.h"
-#include "scene.h"
-#include "test_scene.hpp"
-
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <algorithm>
 #include <vector>
 #include <math.h>
+
+#include "state.h"
+#include "scene.h"
+#include "test_scene.hpp"
+#include "state_machine.hpp"
+#include "error_state.hpp"
 
 class GameState: public State {
     
@@ -17,7 +19,9 @@ public:
     ~GameState();
     
     long run(long lag);
-    void loadResources();
+    void load();
+    
+private:
     void updateInfo(long lag);
     void handleEvent();
     
@@ -26,4 +30,5 @@ public:
     sf::Text info;
     
     Scene *scene;
+    
 };

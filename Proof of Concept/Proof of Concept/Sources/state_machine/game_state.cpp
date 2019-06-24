@@ -6,7 +6,6 @@
 GameState::GameState(sf::RenderWindow *window) {
     this->window = window;
     scene = new TestScene(window);
-    loadResources();
 }
 
 GameState::~GameState() {
@@ -42,10 +41,9 @@ void GameState::updateInfo(long lag) {
     info.setString(text);
 }
 
-void GameState::loadResources() {
+void GameState::load() {
     if (!font.loadFromFile("Resources/GillSans.ttc")) {
-        std::cout << "Unable to load Font" << std::endl;
-        // Push error state
+        StateMachine(std::shared_ptr<State>(new ErrorState(window, "Unable to load Font")));
         return;
     }
     info.setFont(font);
