@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include "game.hpp"
-#include "constants.hpp"
 
 int main() {
     poc::Game();

@@ -11,10 +11,10 @@ class StateMachine {
 public:
     StateMachine(const StateRef& state);
     
-    StateRef get_current_state() const;
-    StateRef pop_state();
+    StateRef getCurrentState() const;
+    StateRef popState();
     
-    void push_state(const StateRef& state);
+    void pushState(const StateRef& state);
     
 private:
     std::stack<StateRef> stack;

@@ -2,19 +2,19 @@
 #include "state.h"
 
 StateMachine::StateMachine(const StateRef& initialState) {
-    push_state(initialState);
+    pushState(initialState);
 }
 
-StateRef StateMachine::get_current_state() const {
+StateRef StateMachine::getCurrentState() const {
     return stack.top();
 }
 
-StateRef StateMachine::pop_state() {
-    auto state = get_current_state();
+StateRef StateMachine::popState() {
+    auto state = getCurrentState();
     stack.pop();
     return state;
 }
 
-void StateMachine::push_state(const StateRef& state) {
+void StateMachine::pushState(const StateRef& state) {
     stack.emplace(state);
 }

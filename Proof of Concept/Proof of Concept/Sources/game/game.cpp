@@ -22,7 +22,7 @@ namespace poc {
         int fps = 0;
         
         while (window.isOpen()) {
-            state = state_machine.get_current_state();
+            state = state_machine.getCurrentState();
             lag += clock.getElapsedTime().asMicroseconds();
             clock.restart();
             
