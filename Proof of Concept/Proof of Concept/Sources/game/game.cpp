@@ -9,10 +9,12 @@ namespace poc {
     
     void Game::run() {
         using StateRef = std::shared_ptr<State>;
-        StateRef state;
-        StateMachine state_machine = StateMachine(StateRef(new GameState(&window)));
-        sf::Clock clock;
         
+        sf::Clock clock;
+        StateMachine state_machine = StateMachine(StateRef(new GameState(&window)));
+        StateRef state = state_machine.getCurrentState();
+        
+        state->load();
         long lag = 0;
         
         while (window.isOpen()) {
