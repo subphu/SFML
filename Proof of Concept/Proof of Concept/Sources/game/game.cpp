@@ -10,7 +10,7 @@ namespace poc {
     
     void Game::run() {
         StateRef state;
-        StateMachine state_machine = StateMachine(StateRef(new MainState(&window)));
+        StateMachine state_machine = StateMachine(StateRef(new GameState(&window)));
         sf::Clock clock;
         sf::Text fpsText;
         fpsText.setFont(font);

@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "main_state.hpp"
+#include "game_state.hpp"
 #include "state_machine.hpp"
 
 #define GAME_TITLE "Proof of Concept"
