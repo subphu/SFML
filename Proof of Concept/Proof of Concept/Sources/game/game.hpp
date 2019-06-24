@@ -14,8 +14,6 @@
 
 namespace poc {
     
-    using StateRef = std::shared_ptr<State>;
-    
     class Game {
         
     public:
@@ -23,11 +21,8 @@ namespace poc {
         
     private:
         sf::RenderWindow window;
-        sf::Font font;
         
         void run();
-        void loadResources();
-        void handleEvent(const std::shared_ptr<State> state);
     };
 }
 

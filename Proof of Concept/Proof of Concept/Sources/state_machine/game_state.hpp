@@ -17,6 +17,8 @@ public:
     ~GameState();
     
     long run(long lag);
+    void loadResources();
+    void updateInfo(long lag);
     void handleEvent();
     
     sf::RenderWindow *window;
