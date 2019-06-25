@@ -1,7 +1,5 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-
 class Scene {
     
 public:
@@ -10,6 +8,5 @@ public:
     virtual void draw() = 0;
     virtual void update() = 0;
     virtual void input(sf::Event *event) = 0;
-    
-    sf::RenderWindow *window;
+    virtual std::string getName() = 0;
 };

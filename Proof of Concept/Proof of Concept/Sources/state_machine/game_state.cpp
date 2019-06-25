@@ -1,8 +1,5 @@
 #include "game_state.hpp"
 
-#define FRAME_DELAY 16500
-#define SECOND 1000000
-
 GameState::GameState(sf::RenderWindow *window) {
     this->window = window;
     scene = new TestScene(window);
@@ -37,7 +34,7 @@ void GameState::handleEvent() {
 }
 
 void GameState::updateInfo(long lag) {
-    std::string text = "Fps: " + std::to_string(SECOND / lag) + "\n" + "Scene: game";
+    std::string text = "Fps: " + std::to_string(SECOND / lag) + "\n" + "Scene: " + scene->getName();
     info.setString(text);
 }
 
