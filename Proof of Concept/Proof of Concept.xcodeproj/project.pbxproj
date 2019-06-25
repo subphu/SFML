@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		260413B022AA2C17006AE3EF /* temp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 260413AF22AA2C17006AE3EF /* temp.cpp */; };
 		260413B322AA421F006AE3EF /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 260413B122AA421F006AE3EF /* game.cpp */; };
 		260413BA22AA5A88006AE3EF /* state_machine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 260413B822AA5A88006AE3EF /* state_machine.cpp */; };
 		261EDB2522BA3EED0027CB6C /* error_state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 261EDB2322BA3EED0027CB6C /* error_state.cpp */; };
@@ -45,7 +44,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		260413AF22AA2C17006AE3EF /* temp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = temp.cpp; sourceTree = "<group>"; };
 		260413B122AA421F006AE3EF /* game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
 		260413B222AA421F006AE3EF /* game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = game.hpp; sourceTree = "<group>"; };
 		260413B422AA4D05006AE3EF /* settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = settings.h; sourceTree = "<group>"; };
@@ -151,10 +149,9 @@
 			children = (
 				26B98A3E22BB6682001E6259 /* scene */,
 				260413B622AA5A3D006AE3EF /* state_machine */,
+				260413B522AA5243006AE3EF /* game */,
 				260413B422AA4D05006AE3EF /* settings.h */,
 				26E03C42229522620055F32A /* main.cpp */,
-				260413AF22AA2C17006AE3EF /* temp.cpp */,
-				260413B522AA5243006AE3EF /* game */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -230,7 +227,6 @@
 			files = (
 				260413B322AA421F006AE3EF /* game.cpp in Sources */,
 				26E03C43229522620055F32A /* main.cpp in Sources */,
-				260413B022AA2C17006AE3EF /* temp.cpp in Sources */,
 				266EBD3C22BB936F0005F6D7 /* test_scene.cpp in Sources */,
 				261EDB2522BA3EED0027CB6C /* error_state.cpp in Sources */,
 				260413BA22AA5A88006AE3EF /* state_machine.cpp in Sources */,

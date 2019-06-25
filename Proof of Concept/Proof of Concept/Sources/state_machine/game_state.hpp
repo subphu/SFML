@@ -6,6 +6,7 @@
 #include <vector>
 #include <math.h>
 
+#include "settings.h"
 #include "state.h"
 #include "scene.h"
 #include "test_scene.hpp"

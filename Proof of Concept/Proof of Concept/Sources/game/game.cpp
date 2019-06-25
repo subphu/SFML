@@ -3,7 +3,7 @@
 namespace poc {
     
     Game::Game() {
-        window.create(sf::VideoMode(DEFAULT_WIDTH, DEFAULT_HEIGHT), GAME_TITLE);
+        window.create(sf::VideoMode(DEFAULT_WIDTH, DEFAULT_HEIGHT), TITLE);
         run();
     }
     
