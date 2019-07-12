@@ -11,6 +11,9 @@
 		260413BA22AA5A88006AE3EF /* state_machine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 260413B822AA5A88006AE3EF /* state_machine.cpp */; };
 		261EDB2522BA3EED0027CB6C /* error_state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 261EDB2322BA3EED0027CB6C /* error_state.cpp */; };
 		266EBD3C22BB936F0005F6D7 /* test_scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266EBD3A22BB936F0005F6D7 /* test_scene.cpp */; };
+		26A8AB6922D48A9B00897926 /* character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26A8AB6722D48A9B00897926 /* character.cpp */; };
+		26A8AB6F22D4952F00897926 /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26A8AB6D22D4952F00897926 /* settings.cpp */; };
+		26AA4AB122CF3FA500BD3B34 /* object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26AA4AAF22CF3FA500BD3B34 /* object.cpp */; };
 		26B98A4122BB66DE001E6259 /* game_state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26B98A3F22BB66DE001E6259 /* game_state.cpp */; };
 		26E03C43229522620055F32A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26E03C42229522620055F32A /* main.cpp */; };
 		26E03C45229523270055F32A /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26E03C3F229522160055F32A /* Resources */; };
@@ -56,6 +59,11 @@
 		266EBD3A22BB936F0005F6D7 /* test_scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test_scene.cpp; sourceTree = "<group>"; };
 		266EBD3B22BB936F0005F6D7 /* test_scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = test_scene.hpp; sourceTree = "<group>"; };
 		268370BD2295216B00AE6662 /* Proof of Concept */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Proof of Concept"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26A8AB6722D48A9B00897926 /* character.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = character.cpp; sourceTree = "<group>"; };
+		26A8AB6822D48A9B00897926 /* character.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = character.hpp; sourceTree = "<group>"; };
+		26A8AB6D22D4952F00897926 /* settings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = settings.cpp; sourceTree = "<group>"; };
+		26AA4AAF22CF3FA500BD3B34 /* object.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = object.cpp; sourceTree = "<group>"; };
+		26AA4AB022CF3FA500BD3B34 /* object.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = object.hpp; sourceTree = "<group>"; };
 		26B98A3D22BB6679001E6259 /* scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scene.h; sourceTree = "<group>"; };
 		26B98A3F22BB66DE001E6259 /* game_state.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = game_state.cpp; sourceTree = "<group>"; };
 		26B98A4022BB66DE001E6259 /* game_state.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = game_state.hpp; sourceTree = "<group>"; };
@@ -107,6 +115,17 @@
 			path = state_machine;
 			sourceTree = "<group>";
 		};
+		267E6FA822CB2786004F9C98 /* object */ = {
+			isa = PBXGroup;
+			children = (
+				26AA4AB022CF3FA500BD3B34 /* object.hpp */,
+				26AA4AAF22CF3FA500BD3B34 /* object.cpp */,
+				26A8AB6822D48A9B00897926 /* character.hpp */,
+				26A8AB6722D48A9B00897926 /* character.cpp */,
+			);
+			path = object;
+			sourceTree = "<group>";
+		};
 		268370B42295216B00AE6662 = {
 			isa = PBXGroup;
 			children = (
@@ -147,10 +166,12 @@
 		26E03C41229522620055F32A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				267E6FA822CB2786004F9C98 /* object */,
 				26B98A3E22BB6682001E6259 /* scene */,
 				260413B622AA5A3D006AE3EF /* state_machine */,
 				260413B522AA5243006AE3EF /* game */,
 				260413B422AA4D05006AE3EF /* settings.h */,
+				26A8AB6D22D4952F00897926 /* settings.cpp */,
 				26E03C42229522620055F32A /* main.cpp */,
 			);
 			path = Sources;
@@ -227,8 +248,11 @@
 			files = (
 				260413B322AA421F006AE3EF /* game.cpp in Sources */,
 				26E03C43229522620055F32A /* main.cpp in Sources */,
+				26AA4AB122CF3FA500BD3B34 /* object.cpp in Sources */,
 				266EBD3C22BB936F0005F6D7 /* test_scene.cpp in Sources */,
+				26A8AB6F22D4952F00897926 /* settings.cpp in Sources */,
 				261EDB2522BA3EED0027CB6C /* error_state.cpp in Sources */,
+				26A8AB6922D48A9B00897926 /* character.cpp in Sources */,
 				260413BA22AA5A88006AE3EF /* state_machine.cpp in Sources */,
 				26B98A4122BB66DE001E6259 /* game_state.cpp in Sources */,
 			);

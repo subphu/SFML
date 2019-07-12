@@ -8,27 +8,36 @@ TestScene::TestScene(sf::RenderWindow *window) {
 }
 
 void TestScene::update() {
-    player.rotate(d * rotSpeed - a * rotSpeed);
-    rotation = player.getRotation();
-
-    float sideRotation = (rotation - 90) * PI / 180.0;
-    float frontRotation = rotation * PI / 180.0;
-
-    movement.x = w * speed * sin(frontRotation) -
-                 s * speed * sin(frontRotation) +
-                 q * speed * sin(sideRotation) -
-                 e * speed * sin(sideRotation);
-    movement.y = s * speed * cos(frontRotation) -
-                 w * speed * cos(frontRotation) +
-                 e * speed * cos(sideRotation) -
-                 q * speed * cos(sideRotation);
-
-    player.move(movement.x, movement.y);
-
+    player.rotate(d - a);
+    player.move(e - q, s - w);
 }
 
 void TestScene::draw() {
+    for (int i = 0; i < objects.size(); i++) {
+        window->draw(objects[i]);
+    }
     window->draw(player);
+    
+    sf::Vector2f offset = player.getDirection() * 3.f;
+    sf::Vector2f position = player.getPositionWithOffset();
+    
+    std::vector<sf::Vector2f> points = player.getVisiblePoints(objects);
+    std::vector<sf::Vertex> vertices{ std::begin(points), std::end(points) };
+    
+    float width = window->getSize().x;
+    float height = window->getSize().y;
+    float max_distance = sqrt((width * width) + (height * height));
+    for (int i = 0; i < vertices.size(); i++) {
+        sf::Vector2f pt = vertices[i].position - position;
+        float distance = sqrt((pt.x * pt.x) + (pt.y * pt.y));
+        float alpha = ((max_distance - distance) / max_distance) * 160;
+        vertices[i].color = sf::Color(192, 192, 160, alpha);
+        vertices[i].position += offset;
+    }
+    vertices.insert(vertices.begin(), position + offset);
+    vertices[0].color = sf::Color(192, 192, 160, 160);
+    window->draw(&vertices[0], vertices.size(), sf::TriangleFan);
+    
 }
 
 void TestScene::input(sf::Event *event) {
@@ -48,20 +57,27 @@ void TestScene::input(sf::Event *event) {
 }
 
 void TestScene::load() {
+//    camera = sf::View(sf::Vector2f(450.f, 300.f), sf::Vector2f(900.f, 600.f));
+//    window->setView(camera);
+    w = false; a = false; s = false; d = false; q = false; e = false;
     name = "Testing Scene";
-    speed = 5.f;
-    rotSpeed = 2.f;
-    rotation = 0.f;
-    size = sf::Vector2f(30.f, 50.f);
-    movement = sf::Vector2f(0.f, 0.f);
-    position = sf::Vector2f(window->getSize().x/2, window->getSize().y/2);
     
-    player = sf::ConvexShape(3);
-    player.setPoint(0, sf::Vector2f(0.f      , -size.y/2));
-    player.setPoint(1, sf::Vector2f(-size.x/2,  size.y/2));
-    player.setPoint(2, sf::Vector2f( size.x/2,  size.y/2));
-    player.setFillColor(sf::Color(128,160,192));
-    player.setPosition(position);
+    player = Character();
+    player.createTriangle(30.f, 50.f);
+    player.setColor(sf::Color(128, 160, 192));
+    player.setPosition(window->getSize().x/2, window->getSize().y/2);
+    
+    objects.assign(12, Object());
+    objects[0].createBox(window->getSize().x, window->getSize().y);
+    objects[0].setPosition(window->getSize().x/2, window->getSize().y/2);
+    objects[0].setColor(sf::Color(32, 32, 32));
+    
+    for (int i = 1; i < objects.size(); i++) {
+        objects[i].createBox(100 + rand() % 100, 100 + rand() % 100);
+        objects[i].setRotation(rand() % 180);
+        objects[i].setPosition(rand() % (int)(window->getSize().x - 200), rand() % (int)(window->getSize().y - 200));
+        objects[i].setColor(sf::Color(32, 96, 96));
+    }
 }
 
 std::string TestScene::getName() {

@@ -8,6 +8,9 @@
 
 #include "settings.h"
 #include "scene.h"
+#include "object.hpp"
+#include "character.hpp"
+
 
 class TestScene: public Scene {
 
@@ -24,15 +27,15 @@ public:
     void handleKeyboardPress(sf::Event event);
     void handleKeyboardRelease(sf::Event event);
     std::string getName();
+    bool compare(sf::Vertex v1, sf::Vertex v2);
     
 private:
-
-    sf::RenderWindow *window;
-    sf::Vector2f position, movement, size;
-    sf::ConvexShape player;
-    
     std::string name;
     bool w, a, s, d, q, e;
-    float speed, rotation, rotSpeed;
-    
+
+    sf::RenderWindow *window;
+    sf::View camera;
+    Character player;
+    std::vector<Object> objects;
+        
 };
