@@ -3,7 +3,9 @@
 namespace poc {
     
     Game::Game() {
-        window.create(sf::VideoMode(DEFAULT_WIDTH, DEFAULT_HEIGHT), TITLE);
+        sf::ContextSettings settings;
+        settings.antialiasingLevel = 8;
+        window.create(sf::VideoMode(DEFAULT_WIDTH, DEFAULT_HEIGHT), TITLE, sf::Style::Default, settings);
         run();
     }
     
