@@ -79,7 +79,7 @@ std::vector<sf::Vector2f> Character::getVisiblePoints(std::vector<Object> &objec
 
 sf::Vector2f Character::raycast(sf::Vector2f direction, std::vector<Object> *obstacles, std::vector<int> &hit_idx) {
     sf::Vector2f position = getPositionWithOffset();
-    sf::Vector2f intersection = sf::Vector2f(MAXFLOAT, MAXFLOAT);
+    sf::Vector2f intersection = sf::Vector2f(FLT_MAX, FLT_MAX);
     int index = 0;
     
     for (int i = 0; i < obstacles->size(); i++) {

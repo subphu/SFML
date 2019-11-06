@@ -19,7 +19,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Sources\game\game.cpp" />
     <ClCompile Include="Sources\main.cpp" />
+    <ClCompile Include="Sources\object\character.cpp" />
+    <ClCompile Include="Sources\object\object.cpp" />
+    <ClCompile Include="Sources\scene\test_scene.cpp" />
+    <ClCompile Include="Sources\settings.cpp" />
+    <ClCompile Include="Sources\state_machine\error_state.cpp" />
+    <ClCompile Include="Sources\state_machine\game_state.cpp" />
+    <ClCompile Include="Sources\state_machine\state_machine.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sources\game\game.hpp" />
+    <ClInclude Include="Sources\object\character.hpp" />
+    <ClInclude Include="Sources\object\object.hpp" />
+    <ClInclude Include="Sources\scene\scene.h" />
+    <ClInclude Include="Sources\scene\test_scene.hpp" />
+    <ClInclude Include="Sources\settings.h" />
+    <ClInclude Include="Sources\state_machine\error_state.hpp" />
+    <ClInclude Include="Sources\state_machine\game_state.hpp" />
+    <ClInclude Include="Sources\state_machine\state.h" />
+    <ClInclude Include="Sources\state_machine\state_machine.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -13,10 +13,78 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\game">
+      <UniqueIdentifier>{a874053f-dae7-42b5-a2db-68f4b99531c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\state_machine">
+      <UniqueIdentifier>{dc05f4cd-b82f-4c31-84e8-83d2ce388806}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\scene">
+      <UniqueIdentifier>{30529c22-ba17-4ae3-8244-b5de82c150c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\object">
+      <UniqueIdentifier>{efd5d185-75e2-4dee-9bfa-f9daf7ab0c9e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\game\game.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\object\character.cpp">
+      <Filter>Source Files\object</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\object\object.cpp">
+      <Filter>Source Files\object</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\scene\test_scene.cpp">
+      <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\state_machine\error_state.cpp">
+      <Filter>Source Files\state_machine</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\state_machine\game_state.cpp">
+      <Filter>Source Files\state_machine</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\state_machine\state_machine.cpp">
+      <Filter>Source Files\state_machine</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sources\game\game.hpp">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\object\character.hpp">
+      <Filter>Source Files\object</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\object\object.hpp">
+      <Filter>Source Files\object</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\scene\scene.h">
+      <Filter>Source Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\scene\test_scene.hpp">
+      <Filter>Source Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\state_machine\error_state.hpp">
+      <Filter>Source Files\state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\state_machine\game_state.hpp">
+      <Filter>Source Files\state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\state_machine\state.h">
+      <Filter>Source Files\state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\state_machine\state_machine.hpp">
+      <Filter>Source Files\state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\settings.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
