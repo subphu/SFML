@@ -7,6 +7,7 @@ Character::Character() {
     speed = 8.f;
     rot_speed = 4.f;
     view_angle = 120;
+    view_distance = 0;
 }
 
 void Character::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -28,46 +29,70 @@ void Character::rotate(float angle) {
     transformable.rotate(angle * rot_speed);
 }
 
-std::vector<sf::Vector2f> Character::getVisiblePoints(std::vector<Object> objects) {
-    std::list<sf::Vector2f> output;
+void Character::setViewDistance(float distance) {
+    view_distance = distance;
+}
+
+float Character::getViewDistance() {
+    return view_distance;
+}
+
+std::vector<sf::Vector2f> Character::getVisiblePoints(std::vector<Object> &objects) {
+    std::vector<sf::Vector2f> output;
+    std::vector<int> unseenIdx;
+    std::vector<int> seenIdx;
     sf::Vector2f position = getPositionWithOffset();
     
     for (int i = 0; i < objects.size(); i++) {
-        std::vector<sf::Vector2f> points = objects[i].getPoints();
-        for (int j = 0; j < points.size(); j++) {
-            sf::Vector2f direction = points[j] - position;
+        std::vector<sf::Vector2f> corners = objects[i].getPoints();
+        for (int j = 0; j < corners.size(); j++) {
+            sf::Vector2f direction = corners[j] - position;
             if (inViewAngle(direction)) {
                 sf::Vector2f delta = Helper::pointDirection(0.001f);
-                output.push_back(raycast(direction - delta, objects));
-                output.push_back(raycast(direction, objects));
-                output.push_back(raycast(direction + delta, objects));
+                output.push_back(raycast(direction - delta, &objects, seenIdx));
+                output.push_back(raycast(direction + delta, &objects, seenIdx));
+                output.push_back(raycast(direction, &objects, seenIdx));
             }
         }
     }
     
     float start_angle = transformable.getRotation() + FACING_ANGLE - view_angle/2;
-    output.push_front(raycast(Helper::pointDirection(start_angle), objects));
-    output.push_back(raycast(Helper::pointDirection(start_angle + view_angle), objects));
+    output.push_back(raycast(Helper::pointDirection(start_angle), &objects, seenIdx));
+    output.push_back(raycast(Helper::pointDirection(start_angle + view_angle), &objects, seenIdx));
+
+    std::sort(seenIdx.begin(), seenIdx.end());
+    seenIdx.erase(std::unique(seenIdx.begin(), seenIdx.end()), seenIdx.end());
+
+    std::vector<Object> seenObjects;
+    for (long i = 0; i < seenIdx.size(); i++) {
+        seenObjects.push_back(objects[seenIdx[i]]);
+    }
+    objects = seenObjects;
+    
     return sortPoints(output);
 }
 
-sf::Vector2f Character::raycast(sf::Vector2f direction, std::vector<Object> obstacles) {
+sf::Vector2f Character::raycast(sf::Vector2f direction, std::vector<Object> *obstacles, std::vector<int> &hitIdx) {
     sf::Vector2f position = getPositionWithOffset();
-    
     sf::Vector2f intersection = sf::Vector2f(MAXFLOAT, MAXFLOAT);
-    for (int i = 0; i < obstacles.size(); i++) {
-        std::vector<sf::Vector2f> points = obstacles[i].getPoints();
-        for (int j = 0; j < points.size(); j++) {
-            sf::Vector2f pt1 = points[j];
-            sf::Vector2f pt2 = j+1 < points.size() ? points[j+1] : points[0];
+    int index = 0;
+    
+    for (int i = 0; i < obstacles->size(); i++) {
+        Object object = (*obstacles)[i];
+        std::vector<sf::Vector2f> corners = object.getPoints();
+        for (int j = 0; j < corners.size(); j++) {
+            sf::Vector2f pt1 = corners[j];
+            sf::Vector2f pt2 = j+1 < corners.size() ? corners[j+1] : corners[0];
             sf::Vector2f pti = Helper::pointIntersection(direction, pt1 - position, pt2 - position);
             intersection = Helper::shortestDistance(pti, intersection);
+            index = intersection == pti ? i : index;
         }
     }
+    hitIdx.push_back(index);
     return intersection;
 }
 
-std::vector<sf::Vector2f> Character::sortPoints(std::list<sf::Vector2f> points) {
+std::vector<sf::Vector2f> Character::sortPoints(std::vector<sf::Vector2f> points) {
     struct PointDetail {
         float rotation;
         sf::Vector2f position;

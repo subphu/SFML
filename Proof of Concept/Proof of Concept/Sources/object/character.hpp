@@ -15,18 +15,22 @@ public:
     
     void move(float directionX, float directionY);
     void rotate(float angle);
+    void setViewDistance(float distance);
     
+    float getViewDistance();
     sf::Vector2f getDirection();
     sf::Vector2f getPositionWithOffset();
-    std::vector<sf::Vector2f> getVisiblePoints(std::vector<Object> objects);
+    std::vector<sf::Vector2f> getVisiblePoints(std::vector<Object> &objects);
+    
+    
     
 private:
     
-    float speed, rot_speed, view_angle;
+    float speed, rot_speed, view_angle, view_distance;
     
     bool inViewAngle(sf::Vector2f pt);
-    sf::Vector2f raycast(sf::Vector2f target, std::vector<Object> obstacles);
-    std::vector<sf::Vector2f> sortPoints(std::list<sf::Vector2f> points);
+    sf::Vector2f raycast(sf::Vector2f target, std::vector<Object> *obstacles, std::vector<int> &hitIdx);
+    std::vector<sf::Vector2f> sortPoints(std::vector<sf::Vector2f> points);
     
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };

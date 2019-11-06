@@ -13,31 +13,33 @@ void TestScene::update() {
 }
 
 void TestScene::draw() {
-    for (int i = 0; i < objects.size(); i++) {
-        window->draw(objects[i]);
-    }
-    window->draw(player);
+    window->draw(objects[0]);
     
+    std::vector<Object> visible(objects);
+    std::cout << visible.size();
     sf::Vector2f offset = player.getDirection() * 3.f;
     sf::Vector2f position = player.getPositionWithOffset();
     
-    std::vector<sf::Vector2f> points = player.getVisiblePoints(objects);
-    std::vector<sf::Vertex> vertices{ std::begin(points), std::end(points) };
+    std::vector<sf::Vector2f> points = player.getVisiblePoints(visible);
+    std::vector<sf::Vertex> vertices { std::begin(points), std::end(points) };
     
-    float width = window->getSize().x;
-    float height = window->getSize().y;
-    float max_distance = sqrt((width * width) + (height * height));
     for (int i = 0; i < vertices.size(); i++) {
         sf::Vector2f pt = vertices[i].position - position;
         float distance = sqrt((pt.x * pt.x) + (pt.y * pt.y));
-        float alpha = ((max_distance - distance) / max_distance) * 160;
+        float alpha = ((player.getViewDistance() - distance) / player.getViewDistance()) * 160;
         vertices[i].color = sf::Color(192, 192, 160, alpha);
         vertices[i].position += offset;
     }
     vertices.insert(vertices.begin(), position + offset);
     vertices[0].color = sf::Color(192, 192, 160, 160);
+    
+    for (int i = 0; i < visible.size(); i++) {
+        window->draw(visible[i]);
+    }
+    window->draw(player);
     window->draw(&vertices[0], vertices.size(), sf::TriangleFan);
     
+    std::cout << " " << visible.size() << std::endl;
 }
 
 void TestScene::input(sf::Event *event) {
@@ -59,6 +61,8 @@ void TestScene::input(sf::Event *event) {
 void TestScene::load() {
 //    camera = sf::View(sf::Vector2f(450.f, 300.f), sf::Vector2f(900.f, 600.f));
 //    window->setView(camera);
+    float width = window->getSize().x;
+    float height = window->getSize().y;
     w = false; a = false; s = false; d = false; q = false; e = false;
     name = "Testing Scene";
     
@@ -66,6 +70,7 @@ void TestScene::load() {
     player.createTriangle(30.f, 50.f);
     player.setColor(sf::Color(128, 160, 192));
     player.setPosition(window->getSize().x/2, window->getSize().y/2);
+    player.setViewDistance(sqrt((width * width) + (height * height)));
     
     objects.assign(12, Object());
     objects[0].createBox(window->getSize().x, window->getSize().y);
