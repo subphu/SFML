@@ -17,12 +17,12 @@
 		260A7E5F2359CE74008F916F /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A7E592359CE74008F916F /* sfml-system.framework */; };
 		261EDB2522BA3EED0027CB6C /* error_state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 261EDB2322BA3EED0027CB6C /* error_state.cpp */; };
 		266EBD3C22BB936F0005F6D7 /* test_scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 266EBD3A22BB936F0005F6D7 /* test_scene.cpp */; };
+		267E68E22372BF23008757C8 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 267E68E12372BEDD008757C8 /* Resources */; };
 		26A8AB6922D48A9B00897926 /* character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26A8AB6722D48A9B00897926 /* character.cpp */; };
 		26A8AB6F22D4952F00897926 /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26A8AB6D22D4952F00897926 /* settings.cpp */; };
 		26AA4AB122CF3FA500BD3B34 /* object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26AA4AAF22CF3FA500BD3B34 /* object.cpp */; };
 		26B98A4122BB66DE001E6259 /* game_state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26B98A3F22BB66DE001E6259 /* game_state.cpp */; };
 		26E03C43229522620055F32A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26E03C42229522620055F32A /* main.cpp */; };
-		26E03C45229523270055F32A /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26E03C3F229522160055F32A /* Resources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,7 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				26E03C45229523270055F32A /* Resources in CopyFiles */,
+				267E68E22372BF23008757C8 /* Resources in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +65,7 @@
 		261EDB2422BA3EED0027CB6C /* error_state.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = error_state.hpp; sourceTree = "<group>"; };
 		266EBD3A22BB936F0005F6D7 /* test_scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test_scene.cpp; sourceTree = "<group>"; };
 		266EBD3B22BB936F0005F6D7 /* test_scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = test_scene.hpp; sourceTree = "<group>"; };
+		267E68E12372BEDD008757C8 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		268370BD2295216B00AE6662 /* Proof of Concept */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Proof of Concept"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26A8AB6722D48A9B00897926 /* character.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = character.cpp; sourceTree = "<group>"; };
 		26A8AB6822D48A9B00897926 /* character.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = character.hpp; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		26B98A3D22BB6679001E6259 /* scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scene.h; sourceTree = "<group>"; };
 		26B98A3F22BB66DE001E6259 /* game_state.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = game_state.cpp; sourceTree = "<group>"; };
 		26B98A4022BB66DE001E6259 /* game_state.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = game_state.hpp; sourceTree = "<group>"; };
-		26E03C3F229522160055F32A /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		26E03C42229522620055F32A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		26E03C47229523A40055F32A /* libsfml-network.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.5.1.dylib"; path = "Libraries Mac/SFML/lib/libsfml-network.2.5.1.dylib"; sourceTree = "<group>"; };
 		26E03C48229523A50055F32A /* libsfml-graphics.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.2.5.1.dylib"; path = "Libraries Mac/SFML/lib/libsfml-graphics.2.5.1.dylib"; sourceTree = "<group>"; };
@@ -137,7 +137,6 @@
 		268370B42295216B00AE6662 = {
 			isa = PBXGroup;
 			children = (
-				26E03C3F229522160055F32A /* Resources */,
 				268370BF2295216B00AE6662 /* Proof of Concept */,
 				268370BE2295216B00AE6662 /* Products */,
 				26E03C46229523A40055F32A /* Frameworks */,
@@ -156,6 +155,7 @@
 		268370BF2295216B00AE6662 /* Proof of Concept */ = {
 			isa = PBXGroup;
 			children = (
+				267E68E12372BEDD008757C8 /* Resources */,
 				26E03C41229522620055F32A /* Sources */,
 			);
 			path = "Proof of Concept";
