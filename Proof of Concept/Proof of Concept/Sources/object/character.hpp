@@ -31,7 +31,7 @@ private:
     sf::Vector2f attention;
     
     bool inViewAngle(sf::Vector2f pt);
-    sf::Vector2f raycast(sf::Vector2f target, std::vector<Object> *obstacles, std::vector<int> &hitIdx);
+    sf::Vector2f raycast(sf::Vector2f target, std::vector<Object> *obstacles, std::vector<int> &hit_idx);
     std::vector<sf::Vector2f> sortPoints(std::vector<sf::Vector2f> points);
     
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

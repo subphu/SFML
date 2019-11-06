@@ -33,7 +33,6 @@ public:
 private:
     std::string name;
     bool w, a, s, d, q, e;
-    float mouseX, mouseY;
 
     sf::RenderWindow *window;
     sf::View camera;

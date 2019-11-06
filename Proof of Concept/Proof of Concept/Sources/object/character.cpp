@@ -45,8 +45,7 @@ float Character::getViewDistance() {
 
 std::vector<sf::Vector2f> Character::getVisiblePoints(std::vector<Object> &objects) {
     std::vector<sf::Vector2f> output;
-    std::vector<int> unseenIdx;
-    std::vector<int> seenIdx;
+    std::vector<int> seen_idx;
     sf::Vector2f position = getPositionWithOffset();
     
     for (int i = 0; i < objects.size(); i++) {
@@ -55,30 +54,30 @@ std::vector<sf::Vector2f> Character::getVisiblePoints(std::vector<Object> &objec
             sf::Vector2f direction = corners[j] - position;
             if (inViewAngle(direction)) {
                 sf::Vector2f delta = Helper::pointDirection(0.001f);
-                output.push_back(raycast(direction - delta, &objects, seenIdx));
-                output.push_back(raycast(direction + delta, &objects, seenIdx));
-                output.push_back(raycast(direction, &objects, seenIdx));
+                output.push_back(raycast(direction - delta, &objects, seen_idx));
+                output.push_back(raycast(direction + delta, &objects, seen_idx));
+                output.push_back(raycast(direction, &objects, seen_idx));
             }
         }
     }
     
     float start_angle = transformable.getRotation() + FACING_ANGLE - view_angle/2;
-    output.push_back(raycast(Helper::pointDirection(start_angle), &objects, seenIdx));
-    output.push_back(raycast(Helper::pointDirection(start_angle + view_angle), &objects, seenIdx));
+    output.push_back(raycast(Helper::pointDirection(start_angle), &objects, seen_idx));
+    output.push_back(raycast(Helper::pointDirection(start_angle + view_angle), &objects, seen_idx));
 
-    std::sort(seenIdx.begin(), seenIdx.end());
-    seenIdx.erase(std::unique(seenIdx.begin(), seenIdx.end()), seenIdx.end());
+    std::sort(seen_idx.begin(), seen_idx.end());
+    seen_idx.erase(std::unique(seen_idx.begin(), seen_idx.end()), seen_idx.end());
 
-    std::vector<Object> seenObjects;
-    for (long i = 0; i < seenIdx.size(); i++) {
-        seenObjects.push_back(objects[seenIdx[i]]);
+    std::vector<Object> seen_objects;
+    for (long i = 0; i < seen_idx.size(); i++) {
+        seen_objects.push_back(objects[seen_idx[i]]);
     }
-    objects = seenObjects;
+    objects = seen_objects;
     
     return sortPoints(output);
 }
 
-sf::Vector2f Character::raycast(sf::Vector2f direction, std::vector<Object> *obstacles, std::vector<int> &hitIdx) {
+sf::Vector2f Character::raycast(sf::Vector2f direction, std::vector<Object> *obstacles, std::vector<int> &hit_idx) {
     sf::Vector2f position = getPositionWithOffset();
     sf::Vector2f intersection = sf::Vector2f(MAXFLOAT, MAXFLOAT);
     int index = 0;
@@ -94,7 +93,7 @@ sf::Vector2f Character::raycast(sf::Vector2f direction, std::vector<Object> *obs
             index = intersection == pti ? i : index;
         }
     }
-    hitIdx.push_back(index);
+    hit_idx.push_back(index);
     return intersection;
 }
 
