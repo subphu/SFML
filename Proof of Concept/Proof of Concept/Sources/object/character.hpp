@@ -15,7 +15,7 @@ public:
     
     void move(float side, float front);
     void rotate(float angle);
-    void lookAt(sf::Vector2f direction);
+    void lookAt(sf::Vector2f position);
     void setViewDistance(float distance);
     
     float getViewDistance();
@@ -28,7 +28,7 @@ public:
 private:
     
     float speed, rot_speed, view_angle, view_distance;
-    sf::Vector2f attention;
+    sf::Vector2f focus_position;
     
     bool inViewAngle(sf::Vector2f pt);
     sf::Vector2f raycast(sf::Vector2f target, std::vector<Object> *obstacles, std::vector<int> &hit_idx);
