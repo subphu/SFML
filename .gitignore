@@ -2,6 +2,7 @@
 
 ignored/*
 
+Proof of Concept/.vs/
 Proof of Concept/Release/*
 Proof of Concept/Debug/*
 Proof of Concept/Libraries Mac/*
