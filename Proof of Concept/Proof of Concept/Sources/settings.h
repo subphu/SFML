@@ -4,11 +4,13 @@
 #include <SFML/Graphics.hpp>
 
 #define TITLE "Proof of Concept"
-#define DEFAULT_WIDTH 1500
-#define DEFAULT_HEIGHT 1000
+#define DEFAULT_WIDTH   1500
+#define DEFAULT_HEIGHT  1000
 #define FRAME_DELAY 16500
-#define SECOND 1000000
-#define PI 3.14159265
+#define SECOND      1000000
+#define MAXFLOAT    0x1.fffffep+127f
+#define PI          3.14159265358979323846264338327950288
+
 
 namespace Helper {
     float anglePoint(sf::Vector2f pt);

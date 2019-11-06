@@ -1,4 +1,5 @@
 #include "object.hpp"
+#include "../settings.h"
 
 Object::Object() {}
 
@@ -28,8 +29,8 @@ void Object::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 
 void Object::move(float offsetX, float offsetY) {
     float rotation = transformable.getRotation();
-    float side_rotation = (rotation - 90) * M_PI / 180.0;
-    float front_rotation = rotation * M_PI / 180.0;
+    float side_rotation = (rotation - 90) * PI / 180.0;
+    float front_rotation = rotation * PI / 180.0;
     transformable.move(-offsetX * sin(side_rotation) - offsetY * sin(front_rotation),
                        offsetX * cos(side_rotation) + offsetY * cos(front_rotation));
 }
