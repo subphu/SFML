@@ -15,18 +15,24 @@ void Character::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     target.draw(vertices, states);
 }
 
-void Character::move(float directionX, float directionY) {
-    float movement_x = directionX * speed;
-    float movement_y = directionY * speed;
-    float rotation = transformable.getRotation();
-    float side_rotation = (rotation - 90) * M_PI / 180.0;
-    float front_rotation = rotation * M_PI / 180.0;
-    transformable.move(-movement_x * sin(side_rotation) - movement_y * sin(front_rotation),
-                        movement_x * cos(side_rotation) + movement_y * cos(front_rotation));
+void Character::move(float side, float front) {
+    sf::Vector2f distance = attention - transformable.getPosition();
+    sf::Vector2f direction = Helper::normalize(distance);
+    float movement_x = side * speed;
+    float movement_y = front * speed;
+    transformable.move(-movement_x * direction.y - movement_y * direction.x,
+                        movement_x * direction.x - movement_y * direction.y);
+    
 }
 
 void Character::rotate(float angle) {
     transformable.rotate(angle * rot_speed);
+}
+
+void Character::lookAt(sf::Vector2f position) {
+    attention = position;
+    sf::Vector2f direction = Helper::normalize(attention - transformable.getPosition());
+    transformable.setRotation(Helper::anglePoint(direction) + 90);
 }
 
 void Character::setViewDistance(float distance) {

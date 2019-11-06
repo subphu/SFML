@@ -12,6 +12,7 @@
 
 namespace Helper {
     float anglePoint(sf::Vector2f pt);
+    sf::Vector2f normalize(sf::Vector2f direction);
     sf::Vector2f pointDirection(float angle);
     sf::Vector2f shortestDistance(sf::Vector2f pt1, sf::Vector2f pt2);
     sf::Vector2f pointIntersection(sf::Vector2f dir, sf::Vector2f pt1, sf::Vector2f pt2);

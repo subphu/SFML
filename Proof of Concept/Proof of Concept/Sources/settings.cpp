@@ -6,6 +6,11 @@ namespace Helper {
         return atan2(pt.y, pt.x) * (180 / PI);
     }
     
+    sf::Vector2f normalize(sf::Vector2f direction) {
+        float length = sqrt((direction.x * direction.x) + (direction.y * direction.y));
+        return sf::Vector2f(direction.x / length, direction.y / length);
+    }
+
     sf::Vector2f pointDirection(float angle) {
         float rad = angle * PI / 180.0;
         return sf::Vector2f(cos(rad), sin(rad));

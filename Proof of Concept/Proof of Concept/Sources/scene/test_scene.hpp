@@ -24,6 +24,7 @@ public:
     void update();
     void input(sf::Event *event);
     
+    void handleMouseMoved(sf::Event event);
     void handleKeyboardPress(sf::Event event);
     void handleKeyboardRelease(sf::Event event);
     std::string getName();
@@ -32,6 +33,7 @@ public:
 private:
     std::string name;
     bool w, a, s, d, q, e;
+    float mouseX, mouseY;
 
     sf::RenderWindow *window;
     sf::View camera;

@@ -13,8 +13,9 @@ class Character: public Object {
 public:
     Character();
     
-    void move(float directionX, float directionY);
+    void move(float side, float front);
     void rotate(float angle);
+    void lookAt(sf::Vector2f direction);
     void setViewDistance(float distance);
     
     float getViewDistance();
@@ -27,6 +28,7 @@ public:
 private:
     
     float speed, rot_speed, view_angle, view_distance;
+    sf::Vector2f attention;
     
     bool inViewAngle(sf::Vector2f pt);
     sf::Vector2f raycast(sf::Vector2f target, std::vector<Object> *obstacles, std::vector<int> &hitIdx);

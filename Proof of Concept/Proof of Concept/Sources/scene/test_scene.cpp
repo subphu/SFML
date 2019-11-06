@@ -16,7 +16,6 @@ void TestScene::draw() {
     window->draw(objects[0]);
     
     std::vector<Object> visible(objects);
-    std::cout << visible.size();
     sf::Vector2f offset = player.getDirection() * 3.f;
     sf::Vector2f position = player.getPositionWithOffset();
     
@@ -38,8 +37,6 @@ void TestScene::draw() {
     }
     window->draw(player);
     window->draw(&vertices[0], vertices.size(), sf::TriangleFan);
-    
-    std::cout << " " << visible.size() << std::endl;
 }
 
 void TestScene::input(sf::Event *event) {
@@ -47,9 +44,13 @@ void TestScene::input(sf::Event *event) {
         case sf::Event::KeyPressed:
             handleKeyboardPress(*event);
             break;
-            
+                
         case sf::Event::KeyReleased:
             handleKeyboardRelease(*event);
+            break;
+                
+        case sf::Event::MouseMoved:
+            handleMouseMoved(*event);
             break;
             
         default:
@@ -87,6 +88,10 @@ void TestScene::load() {
 
 std::string TestScene::getName() {
     return name;
+}
+
+void TestScene::handleMouseMoved(sf::Event event) {
+    player.lookAt(sf::Vector2f(event.mouseMove.x, event.mouseMove.y));
 }
 
 void TestScene::handleKeyboardPress(sf::Event event) {
