@@ -6,10 +6,10 @@
 #include <vector>
 #include <math.h>
 
-#include "settings.h"
+#include "../settings.h"
+#include "../object/object.hpp"
+#include "../object/character.hpp"
 #include "scene.h"
-#include "object.hpp"
-#include "character.hpp"
 
 
 class TestScene: public Scene {

@@ -5,8 +5,8 @@
 #include <list>
 #include <vector>
 
+#include "../settings.h"
 #include "object.hpp"
-#include "settings.h"
 
 class Character: public Object {
     

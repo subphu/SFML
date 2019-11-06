@@ -6,10 +6,10 @@
 #include <vector>
 #include <math.h>
 
-#include "settings.h"
+#include "../settings.h"
+#include "../scene/scene.h"
+#include "../scene/test_scene.hpp"
 #include "state.h"
-#include "scene.h"
-#include "test_scene.hpp"
 #include "state_machine.hpp"
 #include "error_state.hpp"
 
