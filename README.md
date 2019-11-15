@@ -12,3 +12,7 @@
 ### Run in Mac
 - Download [SFML Library](https://www.sfml-dev.org/download/sfml/2.5.1/) for macOS
 - Extract to `Libraries Mac/SFML`
+
+## Video
+### 2D Ray Tracing
+[![2D Ray Tracing](https://img.youtube.com/vi/UXi4F3HVB0E/0.jpg)](https://youtu.be/UXi4F3HVB0E)
